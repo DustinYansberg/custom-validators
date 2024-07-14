@@ -16,10 +16,6 @@ public class MonsterService {
 
     // create
     public ResponseEntity<Monster> createMonster(Monster monster) {
-//	if (repo.existsById(monster.getId())) {
-//	    return ResponseEntity.status(HttpStatus.BAD_REQUEST).header("Error", "Monster already exists with that ID")
-//		    .body(monster);
-//	}
 	return ResponseEntity.status(HttpStatus.CREATED).body(repo.save(monster));
     }
 

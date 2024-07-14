@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.custom_validator.models.Monster;
 import com.custom_validator.services.MonsterService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/monster")
 @CrossOrigin(origins = "*")
@@ -22,7 +24,7 @@ public class MonsterController {
 
     // create
     @PostMapping
-    public ResponseEntity<Monster> createMonster(@RequestBody Monster monster) {
+    public ResponseEntity<Monster> createMonster(@RequestBody @Valid Monster monster) {
 	return service.createMonster(monster);
     }
 

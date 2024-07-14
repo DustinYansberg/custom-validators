@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "monsters")
@@ -17,6 +18,7 @@ public class Monster {
     private int id;
 
     @Column(name = "name")
+    @NotBlank(message = "Name is required")
     private String name;
 
     @Column(name = "height")
@@ -30,6 +32,10 @@ public class Monster {
 
     @Column(name = "type")
     private String type;
+    /*
+     * make a custom annotation that references a class that holds logic to check to
+     * see if our provide value is valid.
+     */
 
     public Monster() {
 	super();
