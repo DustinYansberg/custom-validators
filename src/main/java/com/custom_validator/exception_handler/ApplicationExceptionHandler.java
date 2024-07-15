@@ -23,13 +23,11 @@ public class ApplicationExceptionHandler {
      * method argument fails validation (e.g. due to a '@Valid' or '@Validated'
      * annotation in the RestController)
      */
-    @ExceptionHandler(MethodArgumentNotValidException.class)
     /*
      * this annotation ensure that the response status is set to 400 BAD_REQEUST
      * when a MethodArgumentValidationException exception is handled. This indicates
      * to the client that there was a validation error in the request
      */
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
     /*
      * - this method takes a MethodArgumentValidationException as a parameter. which
      * contains details about the validation errors.
@@ -41,6 +39,8 @@ public class ApplicationExceptionHandler {
      *
      * - finally it returns the map containing the error messages.
      */
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     public Map<String, String> handleMethodArgumentException(MethodArgumentNotValidException exception) {
 	Map<String, String> errorMap = new HashMap<>();
 	exception.getBindingResult().getFieldErrors().forEach(error -> {

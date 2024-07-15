@@ -18,7 +18,7 @@ public class Monster {
     private int id;
 
     @Column(name = "name")
-    @NotBlank(message = "Name is required")
+    @NotBlank(message = "Name is ABSOLUTELY REQUIRED")
     private String name;
 
     @Column(name = "height")
@@ -30,12 +30,9 @@ public class Monster {
     @Column(name = "location")
     private String location;
 
+    // TODO: Must check validity of monster's type
     @Column(name = "type")
     private String type;
-    /*
-     * make a custom annotation that references a class that holds logic to check to
-     * see if our provide value is valid.
-     */
 
     public Monster() {
 	super();
